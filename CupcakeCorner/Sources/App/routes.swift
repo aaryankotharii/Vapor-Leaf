@@ -10,6 +10,10 @@ func routes(_ app: Application) throws {
         }
     }
     
+    app.get("cupcakes") { req -> EventLoopFuture<[Cupcake]> in
+        return Cupcake.query(on: req.db).sort("name",.ascending).all()
+    }
+    
     app.post("add") { req -> EventLoopFuture<Response> in
         let cupcake = try req.content.decode(Cupcake.self)
         return cupcake.create(on: req.db).map { cupcake in
