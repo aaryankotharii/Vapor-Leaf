@@ -12,6 +12,7 @@ public func configure(_ app: Application) throws {
 
     
     app.migrations.add(CreateCupcake())
+    app.migrations.add(CreateOrder())
     try app.autoMigrate().wait()
     
     app.views.use(.leaf)
