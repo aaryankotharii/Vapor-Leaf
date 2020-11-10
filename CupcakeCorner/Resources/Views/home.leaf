@@ -15,7 +15,6 @@
             
     #endfor
 </ul>
-            
 <form method ="post" action="/add">
 <p>Name: <input type="text" name="name" ></p>
 <p>Description: <input type="text" name="description"></p>
