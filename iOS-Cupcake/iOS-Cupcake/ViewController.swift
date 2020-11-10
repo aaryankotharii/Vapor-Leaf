@@ -36,7 +36,7 @@ class ViewController: UITableViewController {
 
 }
 
-extension ViewController {    
+extension ViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cupcakes.count
     }
@@ -48,6 +48,46 @@ extension ViewController {
         cell.detailTextLabel?.text = cake.description
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cake = cupcakes[indexPath.row]
+        let ac = UIAlertController(title: "Order a \(cake.name)?", message: "Please enter your name", preferredStyle: .alert)
+        ac.addTextField()
+        let orderAction = UIAlertAction(title: "Order it!", style: .default) { _ in
+            guard let name = ac.textFields?.first?.text else { return }
+            self.order(cake, name:name)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        ac.addAction(orderAction)
+        ac.addAction(cancelAction)
+        self.present(ac, animated: true, completion: nil)
+    }
+    
+    func order(_ cake: Cupcake,name:String){
+        let order = Order(cakeName: cake.name, buyerName: name)
+        let url = URL(string: "http://localhost:8080/order")!
+        
+        let data = try?  JSONEncoder().encode(order)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.httpBody = data
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let data = data{
+                let decoder = JSONDecoder()
+                if let item = try? decoder.decode(Order.self, from: data){
+                    print(item.buyerName)
+                } else {
+                    print("BAD JSON OBJECT")
+                }
+            }
+        }.resume()
+        
     }
 }
 
