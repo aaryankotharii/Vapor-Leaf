@@ -6,6 +6,10 @@
 <p align = "center"><img src = "Assets/ss.png" width = "75%"></p>
 
 <h1 align = "center">Author</h1>  
-<h3 align = "center"><a href="https://github.com/aaryankotharii"><b>Aaryan Kothari</b></a></h3>
+<h3 align = "center">Aaryan Kothari</b></h3>
 
 <h1 align = "center">License</h1>  
+
+<p align = "center">
+Copyright (c) 2020 Aaryan Kothari <br> Licensed under <a href="https://opensource.org/licenses/MIT">MIT License</a>     <br> See <a href="https://github.com/aaryankotharii/Vapor-Leaf/blob/main/LICENSE">LICENSE</a> for more information
+</p>
