@@ -19,17 +19,22 @@ final class Cupcake: Model, Content {
     
     @Field(key: "description") var description: String
     
+    @Field(key: "image") var image: String
+    
     @Field(key: "price") var price: Int
+    
+    @Field(key: "colors") var colors: String
 
     init() {}
     
-    init(id: UUID? = nil, name: String,description:String,price:Int) {
+    init(id: UUID? = nil, name: String,description:String,image:String,price:Int,colors:String) {
         self.id = id
         self.name = name
         self.description = description
         self.price = price
+        self.image = image
+        self.colors = colors
     }
-    
 }
 
 struct CreateCupcake: Migration {
@@ -38,9 +43,12 @@ struct CreateCupcake: Migration {
             .id()
             .field("name", .string, .required)
             .field("description", .string, .required)
-            .field("price", .int)
+            .field("image", .string, .required)
+            .field("colors",.string,.required)
+            .field("price", .int,.required)
             .create()
     }
+    
     func revert(on database: Database) -> EventLoopFuture<Void> {
         database.schema("cupcakes").delete()
     }

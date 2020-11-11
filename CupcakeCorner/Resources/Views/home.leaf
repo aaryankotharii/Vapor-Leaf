@@ -19,8 +19,9 @@
 <p>Name: <input type="text" name="name" ></p>
 <p>Description: <input type="text" name="description"></p>
 <p>Price: <input type="text" name="price"></p>
+<p>Image URL: <input type="text" name="image"></p>
+<p>colors: <input type="text" name="colors"></p>
 <button type="submit">Add</button>
 </form>
       </body>
 </html>
-
