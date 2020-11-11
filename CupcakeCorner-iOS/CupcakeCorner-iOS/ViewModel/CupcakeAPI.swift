@@ -8,26 +8,8 @@
 import SwiftUI
 import Combine
 
-final class CupcakeViewModel: ObservableObject{
-    
-    var didChange = PassthroughSubject<CupcakeViewModel,Never>()
-    
-    @Published var cupcakes = [Cupcake](){
-        didSet {
-            self.didChange.send(self)
-        }
-    }
-    
-    init() {  fetchCupcakes()  }
-}
 
-extension CupcakeViewModel{
-    func fetchCupcakes(){
-        CupcakeAPI().fetchCupcakes { self.cupcakes = $0 }
-    }
-}
-
-class CupcakeAPI: CupcakeService{
+class CupcakeAPI {
     
     private var cancellable: AnyCancellable?
     
@@ -48,12 +30,17 @@ class CupcakeAPI: CupcakeService{
                 // update cupcakes model local variable.
                 self.cupcakes = cupcakes
                 // completion handler
-                print(cupcakes)
                 completion(cupcakes)
             }
     }
-}
-
-protocol CupcakeService {
-    func fetchCupcakes(completion: @escaping ([Cupcake]) ->(Void))
+    
+    func orderCupcake(order: Order,completion: @escaping(Bool)->(Void)){
+        let data = try! JSONEncoder().encode(order)
+        cancellable = NetworkManager.callAPI(urlString: "http://localhost:8080/order", httpMethod: "POST", uploadData: data, session: urlSession)
+            .receive(on: RunLoop.main)
+            .catch { _ in Just(false) }
+            .sink(receiveValue: { (success) in
+                print(success)
+            })
+    }
 }
