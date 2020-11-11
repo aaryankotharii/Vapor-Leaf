@@ -4,3 +4,8 @@
 <p align = "center"><img src = "Assets/vapor.png" width = "100%"></p>
 <h1 align = "center">Screenshot</h1>
 <p align = "center"><img src = "Assets/ss.png" width = "75%"></p>
+
+<h1 align = "center">Author</h1>  
+<h3 align = "center"><a href="https://github.com/aaryankotharii"><b>Aaryan Kothari</b></a></h3>
+
+<h1 align = "center">License</h1>  
