@@ -8,8 +8,31 @@
 import SwiftUI
 import Combine
 
+<<<<<<< HEAD
 
 class CupcakeAPI {
+=======
+final class CupcakeViewModel: ObservableObject{
+    
+    var didChange = PassthroughSubject<CupcakeViewModel,Never>()
+    
+    @Published var cupcakes = [Cupcake](){
+        didSet {
+            self.didChange.send(self)
+        }
+    }
+    
+    init() {  fetchCupcakes()  }
+}
+
+extension CupcakeViewModel{
+    func fetchCupcakes(){
+        CupcakeAPI().fetchCupcakes { self.cupcakes = $0 }
+    }
+}
+
+class CupcakeAPI: CupcakeService{
+>>>>>>> 69e5749de1fc93628d7ed378f0a5254845fe048c
     
     private var cancellable: AnyCancellable?
     
@@ -30,6 +53,7 @@ class CupcakeAPI {
                 // update cupcakes model local variable.
                 self.cupcakes = cupcakes
                 // completion handler
+<<<<<<< HEAD
                 completion(cupcakes)
             }
     }
@@ -43,4 +67,14 @@ class CupcakeAPI {
                 print(success)
             })
     }
+=======
+                print(cupcakes)
+                completion(cupcakes)
+            }
+    }
+}
+
+protocol CupcakeService {
+    func fetchCupcakes(completion: @escaping ([Cupcake]) ->(Void))
+>>>>>>> 69e5749de1fc93628d7ed378f0a5254845fe048c
 }

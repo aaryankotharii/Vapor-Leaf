@@ -5,6 +5,7 @@
 //  Created by Aaryan Kothari on 11/11/20.
 //
 
+<<<<<<< HEAD
 import SwiftUI
 
 struct RemoteImage: View {
@@ -67,3 +68,6 @@ struct RemoteImage: View {
         }
     }
 }
+=======
+import Foundation
+>>>>>>> 69e5749de1fc93628d7ed378f0a5254845fe048c

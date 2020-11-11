@@ -5,6 +5,7 @@
 //  Created by Aaryan Kothari on 10/11/20.
 //
 
+<<<<<<< HEAD
 import UIKit
 import SwiftUI
 
@@ -38,3 +39,6 @@ extension Color {
         self.init(UIColor(red: red, green: green, blue: blue, alpha: 1))
     }
 }
+=======
+import Foundation
+>>>>>>> 69e5749de1fc93628d7ed378f0a5254845fe048c

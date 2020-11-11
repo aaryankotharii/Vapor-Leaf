@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+<<<<<<< HEAD
 struct OnboardingView: View {
     var cupcakes : [Cupcake]
     //MARK - BODY
@@ -25,5 +26,17 @@ struct OnboardingView: View {
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView(cupcakes: [])
+=======
+struct ContentView: View {
+    var body: some View {
+        Text("Hello, world!")
+            .padding()
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+>>>>>>> 69e5749de1fc93628d7ed378f0a5254845fe048c
     }
 }
