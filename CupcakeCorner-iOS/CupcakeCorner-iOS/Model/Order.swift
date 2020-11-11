@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct Order: Codable {
+    var cakeName: String
+    var buyerName: String
+}

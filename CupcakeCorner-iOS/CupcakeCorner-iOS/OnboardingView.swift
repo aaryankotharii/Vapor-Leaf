@@ -7,15 +7,23 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct OnboardingView: View {
+    var cupcakes : [Cupcake]
+    //MARK - BODY
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView {
+            ForEach(cupcakes) { cupcake in
+                CupcakeCardView(cupcake: cupcake)
+            } //: LOOP
+        } //: TAB
+        .tabViewStyle(PageTabViewStyle())
+        .padding(.vertical,20)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+//MARK - PREVIEW
+struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        OnboardingView(cupcakes: [])
     }
 }
