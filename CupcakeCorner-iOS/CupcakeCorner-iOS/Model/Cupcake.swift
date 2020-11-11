@@ -6,7 +6,6 @@
 //
 
 import Foundation
-<<<<<<< HEAD
 import Combine
 import SwiftUI
 
@@ -28,6 +27,3 @@ struct Cupcake : Codable, Identifiable {
 let samplecupcake = Cupcake(id: UUID(), name: "Red Velvet", description: "very yummy", price: 6,image: "redvelvet", colors: ",")
 
 let samplecupcakes = [samplecupcake,samplecupcake,samplecupcake]
-  
-=======
->>>>>>> 69e5749de1fc93628d7ed378f0a5254845fe048c

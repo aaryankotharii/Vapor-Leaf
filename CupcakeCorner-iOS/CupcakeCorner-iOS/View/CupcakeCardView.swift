@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CupcakeCardView: View {
-<<<<<<< HEAD
     //MARK - PROPERTIES
     var cupcake : Cupcake
     @State private var isAnimating : Bool = false
@@ -67,16 +66,3 @@ struct CupcakeCardView_Previews: PreviewProvider {
         CupcakeCardView(cupcake: samplecupcake)
     }
 }
-
-=======
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct CupcakeCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CupcakeCardView()
-    }
-}
->>>>>>> 69e5749de1fc93628d7ed378f0a5254845fe048c

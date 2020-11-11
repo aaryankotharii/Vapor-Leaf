@@ -6,7 +6,6 @@
 //
 
 import Foundation
-<<<<<<< HEAD
 import Combine
 
 struct NetworkManager {
@@ -45,5 +44,3 @@ struct NetworkManager {
         .eraseToAnyPublisher()
     }
 }
-=======
->>>>>>> 69e5749de1fc93628d7ed378f0a5254845fe048c
